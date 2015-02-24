@@ -8,7 +8,7 @@ return [
     | If false generated javascript and css files are minified
     |
     */
-    'minify'     => false,
+    'minify'          => false,
 
     /*
     | --------------------------------------------------------------------------
@@ -17,7 +17,18 @@ return [
     | Force package to regenerate files
     |
     */
-    'force'      => false,
+    'force'           => false,
+
+    /*
+    | --------------------------------------------------------------------------
+    | Output directory
+    | --------------------------------------------------------------------------
+    | Output directory where css and js files are stored
+    |
+    | Have to be writeable
+    |
+    */
+    'outputDirectory' => public_path('vendor/bootstrap'),
 
     /*
     | --------------------------------------------------------------------------
@@ -26,7 +37,7 @@ return [
     | Options for enabling or disabling bootstrap modules
     |
     */
-    'components' => [
+    'components'      => [
         // Reset and dependencies
         'normalize'            => false,
         'print'                => false,

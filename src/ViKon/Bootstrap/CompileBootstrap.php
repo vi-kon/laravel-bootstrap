@@ -21,8 +21,8 @@ class CompileBootstrap {
     public function __construct(Filesystem $filesystem) {
         $configPath = config_path('bootstrap.components.php');
 
-        $outputCssPath = public_path('bootstrap/bootstrap.min.css');
-        $outputJsPath = public_path('bootstrap/bootstrap.min.js');
+        $outputCssPath = config('bootstrap.outputDirectory') . '/bootstrap.min.css';
+        $outputJsPath = config('bootstrap.outputDirectory') . '/bootstrap.min.js';
 
         if (
             config('bootstrap.force', false)
