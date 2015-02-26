@@ -17,6 +17,8 @@ class BootstrapServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
+        $this->loadViewsFrom(__DIR__ . '/../../views', 'bootstrap');
+
         $this->publishes([
             __DIR__ . '/../../config/config.php' => config_path('bootstrap.php'),
         ], 'config');
