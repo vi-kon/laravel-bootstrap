@@ -2,6 +2,13 @@
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class BootstrapServiceProvider
+ *
+ * @author  Kovács Vince <vincekovacs@hotmail.com>
+ *
+ * @package ViKon\Bootstrap
+ */
 class BootstrapServiceProvider extends ServiceProvider {
 
     /**
