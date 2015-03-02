@@ -2,14 +2,16 @@
 
 
 @section('field')
-    @if(isset($index))
-        {{app('form')->textarea($name, isset($value) ? $value : null, [
-            'class'      => 'form-control',
-            'data-index' => $index,
-        ])}}
-    @else
-        {{app('form')->textarea($name, isset($value) ? $value : null, [
-            'class' => 'form-control'
-        ])}}
-    @endif
+    <?php
+    $options = [
+            'class' => 'form-control',
+    ];
+    if (isset($index)) {
+        $options['data-index'] = $index;
+    }
+    if (isset($disabled) && $disabled) {
+        $options['disabled'] = 'disabled';
+    }
+    ?>
+    {!!app('form')->textarea($name, isset($value) ? $value : null, $options)!!}
 @stop

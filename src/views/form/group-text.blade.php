@@ -2,14 +2,16 @@
 
 
 @section('field')
-    @if(isset($index))
-        {!!app('form')->text($name, isset($value) ? $value : null, [
-            'class'      => 'form-control',
-            'data-index' => $index,
-        ])!!}
-    @else
-        {!!app('form')->text($name, isset($value) ? $value : null, [
+    <?php
+    $options = [
             'class' => 'form-control',
-        ])!!}
-    @endif
+    ];
+    if (isset($index)) {
+        $options['data-index'] = $index;
+    }
+    if (isset($disabled) && $disabled) {
+        $options['disabled'] = 'disabled';
+    }
+    ?>
+    {!!app('form')->text($name, isset($value) ? $value : null, $options)!!}
 @overwrite
