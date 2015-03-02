@@ -12,5 +12,5 @@
         $options['disabled'] = 'disabled';
     }
     ?>
-    {!!app('form')->password($name, isset($value) ? $value : null, $options)!!}
+    {!!app('form')->password($name, $options)!!}
 @overwrite
