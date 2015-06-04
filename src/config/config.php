@@ -9,7 +9,6 @@ return [
     |
     */
     'minify'          => false,
-
     /*
     | --------------------------------------------------------------------------
     | Forcing generation
@@ -18,7 +17,6 @@ return [
     |
     */
     'force'           => false,
-
     /*
     | --------------------------------------------------------------------------
     | Output directory
@@ -29,7 +27,6 @@ return [
     |
     */
     'outputDirectory' => public_path('vendor/bootstrap'),
-
     /*
     | --------------------------------------------------------------------------
     | Components
@@ -42,7 +39,6 @@ return [
         'normalize'            => false,
         'print'                => false,
         'glyphicons'           => false,
-
         // Core CSS
         'scaffolding'          => false,
         'type'                 => false,
@@ -51,7 +47,6 @@ return [
         'tables'               => false,
         'forms'                => false,
         'buttons'              => false,
-
         // Components
         'component-animations' => false,
         'dropdowns'            => false,
@@ -74,13 +69,11 @@ return [
         'responsive-embed'     => false,
         'wells'                => false,
         'close'                => false,
-
         // Components w/ JavaScript
         'modals'               => false,
         'tooltip'              => false,
         'popovers'             => false,
         'carousel'             => false,
-
         // Pure JavaScript components
         'affix'                => false,
         'alert'                => false,
@@ -89,7 +82,6 @@ return [
         'scrollspy'            => false,
         'tab'                  => false,
         'transition'           => false,
-
         // Utility classes
         'utilities'            => false,
         'responsive-utilities' => false,

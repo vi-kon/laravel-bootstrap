@@ -1,17 +1,16 @@
 @extends('bootstrap::form/group')
 
 @section('field')
-    <?php
-    $options = [
+    @if(isset($index))
+        {{app('form')->select($name, $list, isset($selected) ? $selected : null, [
+            'class'      => 'form-control multiple',
+            'multiple'   => 'multiple',
+            'data-index' => $index,
+        ])}}
+    @else
+        {{app('form')->select($name, $list, isset($selected) ? $selected : null, [
             'class'    => 'form-control multiple',
             'multiple' => 'multiple',
-    ];
-    if (isset($index)) {
-        $options['data-index'] = $index;
-    }
-    if (isset($disabled) && $disabled) {
-        $options['disabled'] = 'disabled';
-    }
-    ?>
-    {!!app('form')->select($name, isset($value) ? $value : null, $options)!!}
+        ])}}
+    @endif
 @overwrite

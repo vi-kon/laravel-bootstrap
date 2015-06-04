@@ -57,7 +57,6 @@
                                 }
 
                                 $(self).button('reset');
-                                modal.find('.modal-footer').find('.btn:not(.btn-submit)').prop('disabled', false);
 
                                 modal.trigger('reload.bs.modal');
                             } else {

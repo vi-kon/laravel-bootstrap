@@ -9,7 +9,8 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package ViKon\Bootstrap
  */
-class BootstrapServiceProvider extends ServiceProvider {
+class BootstrapServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -23,7 +24,8 @@ class BootstrapServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         $this->loadViewsFrom(__DIR__ . '/../../views', 'bootstrap');
 
         $this->publishes([
@@ -36,7 +38,8 @@ class BootstrapServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
         $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'bootstrap');
     }
 

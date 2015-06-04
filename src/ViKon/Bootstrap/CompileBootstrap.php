@@ -13,16 +13,18 @@ use MatthiasMullie\Minify\JS as MinifierJs;
  *
  * @package ViKon\Bootstrap
  */
-class CompileBootstrap {
+class CompileBootstrap
+{
 
     /**
      * @param \Illuminate\Filesystem\Filesystem $filesystem
      */
-    public function __construct(Filesystem $filesystem) {
+    public function __construct(Filesystem $filesystem)
+    {
         $configPath = config_path('bootstrap.components.php');
 
         $outputCssPath = config('bootstrap.outputDirectory') . '/bootstrap.min.css';
-        $outputJsPath = config('bootstrap.outputDirectory') . '/bootstrap.min.js';
+        $outputJsPath  = config('bootstrap.outputDirectory') . '/bootstrap.min.js';
 
         if (
             config('bootstrap.force', false)
@@ -36,7 +38,8 @@ class CompileBootstrap {
         }
     }
 
-    private function createJs() {
+    private function createJs()
+    {
         $minifier = new MinifierJs();
 
         // Components
@@ -89,7 +92,8 @@ class CompileBootstrap {
      *
      * @return string
      */
-    private function createCss() {
+    private function createCss()
+    {
         $output = '';
 
         // Core variables and mixins

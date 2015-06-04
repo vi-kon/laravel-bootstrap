@@ -1,16 +1,14 @@
 @extends('bootstrap::form/group')
 
 @section('field')
-    <?php
-    $options = [
+    @if(isset($index))
+        {!!app('form')->password($name, [
+            'class'      => 'form-control',
+            'data-index' => $index,
+        ])!!}
+    @else
+        {!!app('form')->password($name, [
             'class' => 'form-control',
-    ];
-    if (isset($index)) {
-        $options['data-index'] = $index;
-    }
-    if (isset($disabled) && $disabled) {
-        $options['disabled'] = 'disabled';
-    }
-    ?>
-    {!!app('form')->password($name, $options)!!}
+        ])!!}
+    @endif
 @overwrite
