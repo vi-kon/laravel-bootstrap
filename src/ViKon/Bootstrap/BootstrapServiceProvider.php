@@ -29,7 +29,7 @@ class BootstrapServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../../views', 'bootstrap');
 
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('bootstrap.php'),
+            __DIR__ . '/../../config/config.php' => config_path('vi-kon/bootstrap.php'),
         ], 'config');
     }
 
@@ -40,7 +40,7 @@ class BootstrapServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'bootstrap');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'vi-kon.bootstrap');
     }
 
 }
