@@ -1,17 +1,10 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">
-        <span aria-hidden="true">&times;</span><span class="sr-only">@lang('base.modal.btn.close.content')</span>
-    </button>
-
-    <h4 class="modal-title">
-        @yield('title')
-    </h4>
+<div id="{{ $id or '' }}" class="modal fade {{$class or ''}}"
+     tabindex="-1" role="dialog" aria-labelledby="{{ $labeledBy or '' }}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @yield('content')
+        </div>
+    </div>
 </div>
-
-<div class="modal-body">
-    @yield('body')
-</div>
-
-@yield('footer')
 
 @yield('append')

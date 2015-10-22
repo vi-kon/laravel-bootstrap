@@ -1,13 +1,13 @@
-# Configurable Bootstrap for Laravel 5
+# Configurable Bootstrap framework for Laravel 5.1
 
-This is **Laravel 5** package for including bootstrap package to application. Is highly configurable via config file.
+This is **Laravel 5.1** package for compiling Bootstrap framework to application.
 
 ## Table of content
 
 * [Features](#features)
 * [Installation](#installation)
-* [Configuration](#configuration)
 * [Usage](#usage)
+* [Components](#components)
 
 ---
 [Back to top](#configurable-bootstrap-for-laravel-5)
@@ -33,110 +33,79 @@ In your Laravel 5 project add following lines to `app.php`:
 'ViKon\Bootstrap\BootstrapServiceProvider',
 ```
 
-## Configuration
-
-Publish package config file:
-
-```bash
-php artisan vendor:publish --provider="ViKon\Bootstrap\BootstrapServiceProvider" --tag="config"
-```
-
-After config publish `bootstrap.php` file appears under `config` directory with following options:
-
-```php
-/*
-| --------------------------------------------------------------------------
-| Output minifiing
-| --------------------------------------------------------------------------
-| If false generated javascript and css files are minified
-|
-*/
-'minify'     => false,
-
-/*
-| --------------------------------------------------------------------------
-| Forcing generation
-| --------------------------------------------------------------------------
-| Force package to regenerate files
-|
-*/
-'force'      => false,
-
-/*
-| --------------------------------------------------------------------------
-| Components
-| --------------------------------------------------------------------------
-| Options for enabling or disabling bootstrap modules
-|
-*/
-'components' => [
-    // Reset and dependencies
-    'normalize'            => false,
-    'print'                => false,
-    'glyphicons'           => false,
-
-    // Core CSS
-    'scaffolding'          => false,
-    'type'                 => false,
-    'code'                 => false,
-    'grid'                 => false,
-    'tables'               => false,
-    'forms'                => false,
-    'buttons'              => false,
-
-    // Components
-    'component-animations' => false,
-    'dropdowns'            => false,
-    'button-groups'        => false,
-    'input-groups'         => false,
-    'navs'                 => false,
-    'navbar'               => false,
-    'breadcrumbs'          => false,
-    'pagination'           => false,
-    'pager'                => false,
-    'labels'               => false,
-    'badges'               => false,
-    'jumbotron'            => false,
-    'thumbnails'           => false,
-    'alerts'               => false,
-    'progress-bars'        => false,
-    'media'                => false,
-    'list-group'           => false,
-    'panels'               => false,
-    'responsive-embed'     => false,
-    'wells'                => false,
-    'close'                => false,
-
-    // Components w/ JavaScript
-    'modals'               => false,
-    'tooltip'              => false,
-    'popovers'             => false,
-    'carousel'             => false,
-
-    // Pure JavaScript components
-    'affix'                => false,
-    'alert'                => false,
-    'button'               => false,
-    'collapse'             => false,
-    'scrollspy'            => false,
-    'tab'                  => false,
-    'transition'           => false,
-
-    // Utility classes
-    'utilities'            => false,
-    'responsive-utilities' => false,
-],
-```
-
 ---
 [Back to top](#configurable-bootstrap-for-laravel-5)
 
 ## Usage
 
+Simply run `vi-kon:bootstrap:compile {component-name} {component-name}` command to generate bootstrap files (booth CSS
+and JS).
 
+The `vi-kob:bootstrap:compile` command have several options:
+
+- `--all`    - Select all components
+- `--except` - Exclude selected component. Only available if `--all` option set.
+- `--force`  - Overwrite existing files
 
 ---
 [Back to top](#configurable-bootstrap-for-laravel-5)
+
+## Components
+
+Available components (This tokens can use in command):
+
+- **Reset and dependencies**
+  - normalize
+  - print
+  - glyphicons
+- **Core CSS**
+  - scaffolding
+  - type
+  - code
+  - grid
+  - tables
+  - forms
+  - buttons
+- **Components**
+  - component-animations
+  - dropdowns
+  - button-groups
+  - input-groups
+  - navs
+  - navbar
+  - breadcrumbs
+  - pagination
+  - pager
+  - labels
+  - badges
+  - jumbotron
+  - thumbnails
+  - alerts
+  - progress-bars
+  - media
+  - list-group
+  - panels
+  - responsive-embed
+  - wells
+  - close
+- **Components with JavaScript**
+  - modals
+  - tooltip
+  - popovers
+  - carousel
+- **Pure JavaScript components**
+  - affix
+  - alert
+  - button
+  - collapse
+  - scrollspy
+  - tab
+  - transition
+- **Utility classes**
+  - utilities
+  - responsive-utilities
+
+More about components http://getbootstrap.com/.
 
 ## License
 

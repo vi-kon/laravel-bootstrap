@@ -1,6 +1,8 @@
 <?php namespace ViKon\Bootstrap;
 
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use ViKon\Bootstrap\Console\Command\CompileCommand;
 
 /**
  * Class BootstrapServiceProvider
@@ -11,13 +13,15 @@ use Illuminate\Support\ServiceProvider;
  */
 class BootstrapServiceProvider extends ServiceProvider
 {
-
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
+     * {@inheritDoc}
      */
-    protected $defer = false;
+    public function __construct($app)
+    {
+        $this->defer = false;
+
+        parent::__construct($app);
+    }
 
     /**
      * Bootstrap the application events.
@@ -26,21 +30,38 @@ class BootstrapServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'bootstrap');
+        $this->loadViewsFrom(__DIR__ . '/../../views', 'vi-kon.bootstrap');
 
-        $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('vi-kon/bootstrap.php'),
-        ], 'config');
+        $this->commands(['vi-kon.command.bootstrap.compile']);
     }
 
     /**
-     * Register the service provider.
-     *
-     * @return void
+     * {@inheritDoc}
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'vi-kon.bootstrap');
+        $this->app->singleton(Compiler::class, function (Application $app) {
+            return new Compiler($app->make('files'));
+        });
+
+        $this->app->singleton(FormBuilder::class, function (Application $app) {
+            return (new FormBuilder($app->make('html'), $app->make('form')))
+                ->setSessionStore($app->make('session.store'));
+        });
+
+        $this->app->singleton('vi-kon.command.bootstrap.compile', function () {
+            return new CompileCommand();
+        });
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function provides()
+    {
+        return [
+            Compiler::class,
+            'vi-kon.command.bootstrap.compile',
+        ];
+    }
 }
