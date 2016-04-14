@@ -140,6 +140,10 @@ class FormBuilder
                                        $checked,
                                        $this->getFieldOptions($name, $options));
 
+        if ((bool)Arr::get($options, 'inline', false)) {
+            return '<label class="checkbox-inline">' . $field . Arr::get($options, 'content', '') . '</label>';
+        }
+
         return '<div class="checkbox"><label>' . $field . Arr::get($options, 'content', '') . '</label></div>';
     }
 
