@@ -1,4 +1,4 @@
-@extends('modal')
+@extends('vi-kon.bootstrap::modal.modal')
 
 
 @section('content')
