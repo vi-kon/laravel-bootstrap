@@ -30,7 +30,7 @@ class BootstrapServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'vi-kon.bootstrap');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'vi-kon.bootstrap');
 
         $this->commands(['vi-kon.command.bootstrap.compile']);
     }
