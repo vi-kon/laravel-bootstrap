@@ -30,7 +30,13 @@ composer require vi-kon/laravel-bootstrap
 In your Laravel 5 project add following lines to `app.php`:
 ```php
 // to your providers array
-'ViKon\Bootstrap\BootstrapServiceProvider',
+ViKon\Bootstrap\BootstrapServiceProvider::class,
+```
+
+```php
+// to your aliases array
+'Form' => Collective\Html\FormFacade::class,
+'Html' => Collective\Html\HtmlFacade::class,
 ```
 
 ---
