@@ -81,6 +81,38 @@ class FormBuilder
     }
 
     /**
+     * Create date input field
+     *
+     * @param string      $name
+     * @param string|null $value
+     * @param array       $options
+     *
+     * @return string
+     */
+    public function date($name, $value = null, array $options = [])
+    {
+        return $this->form->date($name,
+            $value,
+            $this->addFormControlClass($this->getFieldOptions($name, $options)));
+    }
+
+    /**
+     * Create datetime input field
+     *
+     * @param string      $name
+     * @param string|null $value
+     * @param array       $options
+     *
+     * @return string
+     */
+    public function datetime($name, $value = null, array $options = [])
+    {
+        return $this->form->datetime($name,
+            $value,
+            $this->addFormControlClass($this->getFieldOptions($name, $options)));
+    }
+
+    /**
      * Create file field
      *
      * @param string $name
