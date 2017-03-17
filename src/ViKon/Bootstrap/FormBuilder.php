@@ -244,6 +244,16 @@ class FormBuilder
         return $this->wrapToGroup($name, $this->text($name, $value, $options), $options);
     }
 
+    public function groupDate($name, $value = null, array $options = [])
+    {
+        return $this->wrapToGroup($name, $this->date($name, $value, $options), $options);
+    }
+
+    public function groupDateTime($name, $value = null, array $options = [])
+    {
+        return $this->wrapToGroup($name, $this->datetime($name, $value, $options), $options);
+    }
+
     public function groupPassword($name, array $options = [])
     {
         return $this->wrapToGroup($name, $this->password($name, $options), $options);
