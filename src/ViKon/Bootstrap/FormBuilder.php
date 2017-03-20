@@ -81,6 +81,38 @@ class FormBuilder
     }
 
     /**
+     * Create date input field
+     *
+     * @param string      $name
+     * @param string|null $value
+     * @param array       $options
+     *
+     * @return string
+     */
+    public function date($name, $value = null, array $options = [])
+    {
+        return $this->form->date($name,
+            $value,
+            $this->addFormControlClass($this->getFieldOptions($name, $options)));
+    }
+
+    /**
+     * Create datetime input field
+     *
+     * @param string      $name
+     * @param string|null $value
+     * @param array       $options
+     *
+     * @return string
+     */
+    public function datetime($name, $value = null, array $options = [])
+    {
+        return $this->form->datetime($name,
+            $value,
+            $this->addFormControlClass($this->getFieldOptions($name, $options)));
+    }
+
+    /**
      * Create file field
      *
      * @param string $name
@@ -148,6 +180,28 @@ class FormBuilder
     }
 
     /**
+     * @param string     $name
+     * @param string|int $value
+     * @param bool|null  $checked
+     * @param array      $options
+     *
+     * @return string
+     */
+    public function radio($name, $value = 1, $checked = null, array $options = [])
+    {
+        $field = $this->form->radio($name,
+            $value,
+            $checked,
+            $this->getFieldOptions($name, $options));
+
+        if ((bool)Arr::get($options, 'inline', false)) {
+            return '<label class="radio-inline">' . $field . Arr::get($options, 'content', '') . '</label>';
+        }
+
+        return '<div class="radio"><label>' . $field . Arr::get($options, 'content', '') . '</label></div>';
+    }
+
+    /**
      * Create token input field
      *
      * @param string $name
@@ -190,6 +244,16 @@ class FormBuilder
         return $this->wrapToGroup($name, $this->text($name, $value, $options), $options);
     }
 
+    public function groupDate($name, $value = null, array $options = [])
+    {
+        return $this->wrapToGroup($name, $this->date($name, $value, $options), $options);
+    }
+
+    public function groupDateTime($name, $value = null, array $options = [])
+    {
+        return $this->wrapToGroup($name, $this->datetime($name, $value, $options), $options);
+    }
+
     public function groupPassword($name, array $options = [])
     {
         return $this->wrapToGroup($name, $this->password($name, $options), $options);
@@ -213,6 +277,11 @@ class FormBuilder
     public function groupCheckbox($name, $value = 1, $checked = null, array $options = [])
     {
         return $this->wrapToGroup($name, $this->checkbox($name, $value, $checked, $options), $options);
+    }
+
+    public function groupRadio($name, $value = 1, $checked = null, array $options = [])
+    {
+        return $this->wrapToGroup($name, $this->radio($name, $value, $checked, $options), $options);
     }
 
     public function groupTokenInput($name, $url, $value = null, array $options = [])
